@@ -1,4 +1,4 @@
-# init() frontend
+# BeeHive
 
 ### Project Setup
 

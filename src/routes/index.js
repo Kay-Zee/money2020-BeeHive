@@ -1,17 +1,17 @@
 'use strict';
 
 var Config = require('../config/config.js')();
-var Count = require('../models/count.js');
+var Owners = require('../models/owners.js');
 
 var Routes = function(app) {
   app.get('/', function(req, res) {
     res.render('index.jade', {
-      title: Config.title + 'Home',
-      count: Count.get()
+      title: Config.title + 'Home'
     });
   });
 
-  require('./count.js')(app);
+  require('./owners.js')(app);
+  require('./workers.js')(app);
 };
 
 module.exports = Routes;
