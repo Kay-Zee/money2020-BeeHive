@@ -1,0 +1,14 @@
+extends layout.jade
+
+block extra-scripts
+  //- build:js /scripts/home.js
+  script(src="/js/count.js")
+  //- endbuild
+
+block page-content
+  p The meaning of life is
+    = ' '
+    span(id="count")= count
+
+  button No it's not
+

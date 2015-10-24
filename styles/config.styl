@@ -1,0 +1,103 @@
+//============================================
+//
+//      1# Colors
+//      2# Font Stacks
+//      3# Media queries
+//      4# Animations
+//      5# Functions
+//
+//============================================
+
+//============================================
+//
+//      1# Colors
+//
+//============================================
+
+// Brand - Blue colors -- From Darker to Lighter.
+color-brand-main         = #54ABED
+color-brand-dark-1       = darken(color-brand-main, 20%)
+color-brand-light-1      = lighten(color-brand-main, 20%)
+color-brand-light-2      = lighten(color-brand-main, 75%)
+
+// Greyscale  -- From Darker to Lighter
+color-greyscale-1        = #3F4044
+color-greyscale-2        = #979797
+color-greyscale-3        = #b6b6b6
+color-greyscale-4        = #e8e9ec
+color-greyscale-5        = #f2f2f2
+
+// Colours
+color-darkest            = color-greyscale-1
+color-lightest           = #FFF
+
+color-bg-light           = color-lightest
+color-bg                 = color-greyscale-5
+color-border             = color-greyscale-4
+
+// Text Colors
+color-text               = color-greyscale-1                  // Black
+color-text-secondary     = color-greyscale-2                  // Grey
+color-text-tertiary      = lighten(color-greyscale-1, 25%)    // Black with opacity 0.75, not usign rgba for better rendering performance with solid color
+color-text-light         = color-greyscale-3                  // Light grey
+
+// UI colors
+color-warning            = #E65963             // Red
+color-success            = #1D993B             // Green
+
+// External colours
+color-twitter            = #55ACEE
+color-facebook           = #3B5998
+color-tumblr             = #34465D
+
+//============================================
+//
+//      2# Font Stacks
+//
+//============================================
+
+font-sans-safe           = Lucida Grande, sans-serif
+font-serif-safe          = Georgia, serif
+font-sans                = Open Sans, font-sans-safe
+font-serif               = Merriweather, font-serif-safe
+
+//============================================
+//
+//      3# Media Queries
+//
+//============================================
+
+screen-medium-size        = 40rem     //  640px
+screen-large-size         = 50rem     //  800px
+screen-large-plus-size    = 56rem     //  896px
+screen-x-large-size       = 71rem     //  1136px
+
+//============================================
+//
+//      4# Animations
+//
+//============================================
+
+transition-animation  = unquote('all 0.3s ease-in-out')
+transition-animation-ease  = unquote('all 0.3s ease')
+
+//============================================
+//
+//      5# Functions
+//
+//============================================
+
+// Based off of Nicolas Gallagher's article and solution found at:
+// http://nicolasgallagher.com/micro-clearfix-hack/
+
+clearfix()
+  zoom: 1
+
+  &:before
+  &:after
+    content: ""
+    display: table
+
+  &:after
+    clear: both
+

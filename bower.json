@@ -1,0 +1,26 @@
+{
+  "name": "init() frontend",
+  "version": "0.0.0",
+  "homepage": "https://github.com/axiomzen/init-frontend-basic",
+  "authors": [
+    "Axiom Zen"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "None",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fastclick": "~1.0.3",
+    "jquery": "~2.1.4",
+    "viewport-units-buggyfill": "~0.4.1",
+    "webfontloader": "~1.6.4"
+  }
+}

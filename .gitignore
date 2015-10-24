@@ -1,0 +1,76 @@
+# HEAPDUM #
+# #######################
+*.heapsnapshot
+
+# Compiled #
+# #######################
+/views/*.html
+/public
+/dist
+/built
+/design
+/bower_components
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+dump.rdb
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+.idea/
+
+# node.js related
+node_modules
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+
+pids
+logs
+results
+
+npm-debug.log
+
+# deploy #
+#########
+deploy/deploy.rb
+
+app/dump.rdb
+dump.rdb
