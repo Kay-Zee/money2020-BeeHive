@@ -1,0 +1,232 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+--
+-- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION "uuid-ossp"; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UUIDs)';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: jobs; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE jobs (
+    id uuid DEFAULT uuid_generate_v4() NOT NULL,
+    title character varying(256),
+    cost integer,
+    project_id uuid NOT NULL,
+    accepted_worker_id uuid,
+    created_at timestamp without time zone DEFAULT now(),
+    updated_at timestamp without time zone DEFAULT now(),
+    tags text[],
+    paid boolean,
+    description text
+);
+
+
+ALTER TABLE jobs OWNER TO postgres;
+
+--
+-- Name: owners; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE owners (
+    id uuid DEFAULT uuid_generate_v4() NOT NULL,
+    name character varying(256),
+    email character varying(256),
+    created_at timestamp without time zone DEFAULT now(),
+    updated_at timestamp without time zone DEFAULT now(),
+    password character varying(256)
+);
+
+
+ALTER TABLE owners OWNER TO postgres;
+
+--
+-- Name: projects; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE projects (
+    id uuid DEFAULT uuid_generate_v4() NOT NULL,
+    title character varying(256),
+    description text,
+    owner_id uuid NOT NULL,
+    created_at timestamp without time zone DEFAULT now(),
+    updated_at timestamp without time zone DEFAULT now(),
+    tags text[]
+);
+
+
+ALTER TABLE projects OWNER TO postgres;
+
+--
+-- Name: workers; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE workers (
+    id uuid DEFAULT uuid_generate_v4() NOT NULL,
+    braintree_id text NOT NULL,
+    name character varying(256),
+    email character varying(256),
+    created_at timestamp without time zone DEFAULT now(),
+    updated_at timestamp without time zone DEFAULT now(),
+    password character varying(256),
+    tags text[],
+    sub_merchant_json json
+);
+
+
+ALTER TABLE workers OWNER TO postgres;
+
+--
+-- Data for Name: jobs; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY jobs (id, title, cost, project_id, accepted_worker_id, created_at, updated_at, tags, paid, description) FROM stdin;
+b34cf2c8-7d2a-4776-b2df-d0d82019acea	Authentication	500	8474195b-3521-4fad-9807-0ca3b7b46a4e	a0d5154c-0214-4945-8f4a-4ef44b08eaa4	2015-10-24 22:38:25.154456	2015-10-24 22:38:25.154456	\N	f	Fix up the user authentication code of BeeHive. Consider adding social login if possible.
+\.
+
+
+--
+-- Data for Name: owners; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY owners (id, name, email, created_at, updated_at, password) FROM stdin;
+847d7176-4752-4f90-8685-c001836c566b	Kan Zhang	kan@axiomzen.co	2015-10-24 22:10:02.637916	2015-10-24 22:10:02.637916	password
+\.
+
+
+--
+-- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY projects (id, title, description, owner_id, created_at, updated_at, tags) FROM stdin;
+c1a7d287-70d7-4ea9-8b83-82ae49699857	food-inspections-evaluation	This repository contains the code to generate predictions of critical violations at food establishments in Chicago.	847d7176-4752-4f90-8685-c001836c566b	2015-10-25 04:54:52.747846	2015-10-25 04:54:52.747846	\N
+fc3f568c-b0f6-4287-9bc8-62910fd56b3a	opendata.cern.ch	Invenio source code overlay for CERN Open Data Portal	847d7176-4752-4f90-8685-c001836c566b	2015-10-25 04:55:41.354172	2015-10-25 04:55:41.354172	\N
+8474195b-3521-4fad-9807-0ca3b7b46a4e	BeeHive	A tool to connect freelance software developers with people who need them most	847d7176-4752-4f90-8685-c001836c566b	2015-10-24 22:34:27.870879	2015-10-24 22:34:27.870879	\N
+\.
+
+
+--
+-- Data for Name: workers; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY workers (id, braintree_id, name, email, created_at, updated_at, password, tags, sub_merchant_json) FROM stdin;
+2023a426-1476-47b0-8f73-fcf1687b0272	approve_me_test_instant_jbvmywsf	approve_me test	testuserlive123@gmail.com	2015-10-25 01:30:32.340013	2015-10-25 01:30:32.340013	\N	{}	{"individual":{"firstName":"approve_me","lastName":"test","email":"testuserlive123@gmail.com","dateOfBirth":"1991-11-19","ssn":"456-45-4567","address":{"streetAddress":"111 Main St","locality":"Chicago","region":"IL","postalCode":"60622"}},"funding":{"destination":"email","email":"testuserlive123@gmail.com"},"tosAccepted":true,"masterMerchantAccountId":"axiomzen"}
+a0d5154c-0214-4945-8f4a-4ef44b08eaa4	flynn_howling_instant_hm7k4vgv	Stefano Tirloni	testuser123live@gmail.com	2015-10-25 00:08:57.525257	2015-10-25 00:08:57.525257	password	{}	{"individual":{"firstName":"Flynn","lastName":"Howling","email":"flynn@axiomzen.co","dateOfBirth":"1991-11-19","ssn":"456-45-4567","address":{"streetAddress":"111 Main St","locality":"Chicago","region":"IL","postalCode":"60622"}},"funding":{"descriptor":"Blue Ladders","destination":"email","email":"flynn@axiomzen.co"},"tosAccepted":true,"masterMerchantAccountId":"axiomzen"}
+\.
+
+
+--
+-- Name: jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY jobs
+    ADD CONSTRAINT jobs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: owners_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY owners
+    ADD CONSTRAINT owners_email_key UNIQUE (email);
+
+
+--
+-- Name: owners_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY owners
+    ADD CONSTRAINT owners_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: projects_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY projects
+    ADD CONSTRAINT projects_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: workers_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY workers
+    ADD CONSTRAINT workers_email_key UNIQUE (email);
+
+
+--
+-- Name: workers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY workers
+    ADD CONSTRAINT workers_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: owners_email_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE UNIQUE INDEX owners_email_idx ON owners USING btree (lower((email)::text) varchar_pattern_ops);
+
+
+--
+-- Name: workers_email_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE UNIQUE INDEX workers_email_idx ON workers USING btree (lower((email)::text) varchar_pattern_ops);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: kanzhang
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM kanzhang;
+GRANT ALL ON SCHEMA public TO kanzhang;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
