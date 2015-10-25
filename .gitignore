@@ -35,7 +35,7 @@
 # Logs and databases #
 ######################
 *.log
-*.sql
+# *.sql
 *.sqlite
 dump.rdb
 
