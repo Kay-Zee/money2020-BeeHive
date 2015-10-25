@@ -1,0 +1,83 @@
+extends layout.jade
+
+block extra-scripts
+  //- build:js /scripts/home.js
+  script(src="/js/count.js")
+  //- endbuild
+
+block page-content
+
+  body.list-page
+    .hero-list
+      .navbar-bee
+        .row
+          .col-md-4
+            a(href="/")
+              img(src="./img/logo-white.svg")
+          .col-md-8
+            ul.text-right
+              li
+                a(href='#') How it works
+              li
+                a(href='#') Login
+              li
+                a(href='#') Sing up
+
+
+
+    section.filter
+      .single-job
+        ol.breadcrumb
+          li
+            a(href='#') Home
+          li
+            a(href='#') Projects
+          li.active iOS
+
+        header  opendata.cern.ch
+        .description-container
+          .row
+            .col-md-6
+              h1 The PHP Interpreter
+              p This is the github mirror of the official PHP repository located at http://git.php.net.
+              h2 Pull Requests
+              p PHP accepts pull requests via github. Discussions are done on github, but depending on the topic can also be relayed to the official PHP developer mailinglist internals@lists.php.net.
+
+              p New features require an RFC and must be accepted by the developers. See https://wiki.php.net/rfc and https://wiki.php.net/rfc/voting for more information on the process.
+
+              p Bug fixes do not require an RFC, but require a bugtracker ticket. Always open a ticket at https://bugs.php.net and reference the bug id using #NNNNNN.
+
+            .col-md-5.col-md-offset-1
+              #tile1.tile
+                .wrapper
+                  .header Details
+                  .price.text-center
+                    label PRICE
+                    p 300$
+                  .dates
+                    .start
+                      strong STARTS
+                      | 12:30 JAN 2015
+                      span
+                    .ends
+                      strong ENDS
+                      | 14:30 JAN 2015
+                  .stats
+                    div
+                      strong VIEWS
+                      | 3098
+                    div
+                      strong JOINED
+                      | 562
+                    div
+                      strong DECLINED
+                      | 182
+           .row
+            br
+            br
+            button.btn.btn-primary.btn-lg(type='button') Take this job
+
+    footer
+      .text-center
+        img(src="img/logo-white.svg")
+

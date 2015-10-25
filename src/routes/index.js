@@ -20,6 +20,20 @@ var Routes = function(app) {
     });
   });
 
+  app.get('/list', function(req, res) {
+    res.render('list.jade', {
+      title: Config.title + 'List'
+    });
+  });
+
+  app.get('/single-job', function(req, res) {
+    res.render('single-job.jade', {
+      title: Config.title + 'single-job'
+    });
+  });
+
+
+
   require('./owners.js')(app);
   require('./workers.js')(app);
 };

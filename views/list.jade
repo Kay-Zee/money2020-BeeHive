@@ -1,0 +1,395 @@
+extends layout.jade
+
+block extra-scripts
+  //- build:js /scripts/home.js
+  script(src="/js/modernizr.custom.js")
+  script(src="/js/count.js")
+  script(src="/js/cbpFWTabs.js")
+  script.
+    (function() {
+
+      [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+        new CBPFWTabs( el );
+      });
+
+    })();
+  //- endbuild
+
+block page-content
+  body.list-page
+    .hero-list
+      .navbar-bee
+        .row
+          .col-md-4
+            a(href="/")
+              img(src="./img/logo-white.svg")
+          .col-md-8
+            ul.text-right
+              li
+                a(href='#') How it works
+              li
+                a(href='#') Login
+              li
+                a(href='#') Sing up
+
+
+
+    section.filter
+      .text-center
+        h1 Browse all the current projects
+        br
+        br
+      .tabs.tabs-style-flip
+        nav
+          ul
+            li
+              a.icon.icon-plane(href='#section-flip-5')
+                span iOS
+            li
+              a.icon.icon-date(href='#section-flip-4')
+                span Android
+            li
+              a.icon.icon-gift(href='#section-flip-2')
+                span node.js
+            li
+              a.icon.icon-coffee(href='#section-flip-3')
+                span php
+            li
+              a.icon.icon-tools(href='#section-flip-5')
+                span Angular.js
+            li
+              a.icon.icon-tools(href='#section-flip-6')
+                span Ruby
+
+
+
+        .content-wrap
+          section#section-flip-1
+            .choose
+              .choose-box
+                .row
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-1(href='single-job')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 food-inspections-evaluation
+                      .content
+                        p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
+
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-2(href='#')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 opendata.cern.ch
+                      .content
+                        p Invenio source code overlay for CERN Open Data Portal
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-3(href='#')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 congressional-districts
+                      .content
+                        p Historic and current US Congressional districts as GeoJSON, versioned within Git
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-4(href='#')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 food-inspections-evaluation
+                      .content
+                        p This repository contains the code to generate predictions of critical vi
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-5(href='#')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 u2flib
+                      .content
+                        p Provides functionality for working with the server side aspects of the U2F protocol on iOS.
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-6(href='#')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 congressional-districts
+                      .content
+                        p Historic and current US Congressional districts as GeoJSON, versioned within Git
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-1(href='#')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 food-inspections-evaluation
+                      .content
+                        p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
+
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-2(href='#')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 opendata.cern.ch
+                      .content
+                        p Invenio source code overlay for CERN Open Data Portal
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-3(href='#')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 congressional-districts
+                      .content
+                        p Historic and current US Congressional districts as GeoJSON, versioned within Git
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-4(href='#')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 food-inspections-evaluation
+                      .content
+                        p This repository contains the code to generate predictions of critical vi
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-5(href='#')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 u2flib
+                      .content
+                        p Provides functionality for working with the server side aspects of the U2F protocol on iOS.
+                  .col-md-4
+                    .all-box
+                      a.block.category.clip.hover-bg-color-art.category-6(href='#')
+                        .category-project-count.full-height.mobile-table
+                            .mobile-table-cell
+                              .h4 382 live projects
+                          .category-name.mobile-table.full-height
+                            .mobile-table-cell
+                              .h3 congressional-districts
+                      .content
+                        p Historic and current US Congressional districts as GeoJSON, versioned within Git
+
+
+          section#section-flip-2
+            .row
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-1(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 food-inspections-evaluation
+                  .content
+                    p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
+
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-2(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 opendata.cern.ch
+                  .content
+                    p Invenio source code overlay for CERN Open Data Portal
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-3(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 congressional-districts
+                  .content
+                    p Historic and current US Congressional districts as GeoJSON, versioned within Git
+          section#section-flip-3
+            .row
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-1(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 food-inspections-evaluation
+                  .content
+                    p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
+
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-2(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 opendata.cern.ch
+                  .content
+                    p Invenio source code overlay for CERN Open Data Portal
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-3(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 congressional-districts
+                  .content
+                    p Historic and current US Congressional districts as GeoJSON, versioned within Git
+
+          section#section-flip-4
+            .row
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-1(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 food-inspections-evaluation
+                  .content
+                    p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
+
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-2(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 opendata.cern.ch
+                  .content
+                    p Invenio source code overlay for CERN Open Data Portal
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-3(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 congressional-districts
+                  .content
+                    p Historic and current US Congressional districts as GeoJSON, versioned within Git
+          section#section-flip-5
+            .row
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-1(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 food-inspections-evaluation
+                  .content
+                    p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
+
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-2(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 opendata.cern.ch
+                  .content
+                    p Invenio source code overlay for CERN Open Data Portal
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-3(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 congressional-districts
+                  .content
+                    p Historic and current US Congressional districts as GeoJSON, versioned within Git
+
+          section#section-flip-6
+            .row
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-1(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 food-inspections-evaluation
+                  .content
+                    p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
+
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-2(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 opendata.cern.ch
+                  .content
+                    p Invenio source code overlay for CERN Open Data Portal
+              .col-md-4
+                .all-box
+                  a.block.category.clip.hover-bg-color-art.category-3(href='#')
+                    .category-project-count.full-height.mobile-table
+                        .mobile-table-cell
+                          .h4 382 live projects
+                      .category-name.mobile-table.full-height
+                        .mobile-table-cell
+                          .h3 congressional-districts
+                  .content
+                    p Historic and current US Congressional districts as GeoJSON, versioned within Git
+
+
+    footer
+      .text-center
+        img(src="img/logo-white.svg")
+
+
