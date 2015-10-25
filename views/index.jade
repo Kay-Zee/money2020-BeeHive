@@ -15,7 +15,8 @@ block page-content
         .col-md-8
           ul.text-right
             if user
-              a(href='/logout') Logout
+              a(href='/logout') Logout &nbsp;
+                span.glyphicon.glyphicon-log-out
             else
               li
                 a(href='javascript:LoginWorker()')
