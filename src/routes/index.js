@@ -32,6 +32,11 @@ var Routes = function(app) {
     });
   });
 
+  app.get('/employer', function(req, res) {
+    res.render('employer.jade', {
+      title: Config.title + 'employer'
+    });
+  });
 
 
   require('./owners.js')(app);
