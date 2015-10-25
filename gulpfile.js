@@ -33,7 +33,7 @@
       script: 'app.js',
       ext: 'js',
       watch: ['app.js', 'src/'],
-      nodeArgs: ['--debug'],
+      nodeArgs: ['--debug', '--harmony'],
       env: { 'NODE_ENV': env }
     }).on('restart', function() {
       gulp.start('jshint');

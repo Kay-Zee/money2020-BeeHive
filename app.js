@@ -1,4 +1,4 @@
-var newrelic = require('newrelic');
+
 var compress = require('compression');
 var express = require('express');
 var session = require('express-session')
@@ -9,23 +9,19 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var config = require('./src/config/config.js')();
-var mongoose = require('mongoose');
 var braintree = require("braintree");
 var UUID = require('uuid-js');
 
 var gateway = braintree.connect({
   environment: braintree.Environment.Sandbox,
   merchantId: process.env.BRAINTREE_MERCHANT_ID,
-  publicKey: process.env.BRAINTREE_MERCHANT_ID,
-  privateKey: process.env.BRAINTREE_MERCHANT_ID
+  publicKey: process.env.BRAINTREE_PUBLIC_KEY,
+  privateKey: process.env.BRAINTREE_PRIVATE_KEY
 });
 
 var app = express();
 var env = process.env.NODE_ENV || 'development';
 var viewsDir = (env === 'development' ? 'views' : 'built/views');
-
-mongoose.connect(process.env.NODE_ENV || 'mongodb://localhost/beehive');
-mongoose.Promise = require('bluebird');
 
 
 
@@ -73,7 +69,7 @@ if (env === 'staging' || env === 'production') {
 
 */
 
-require('./src/routes')(app, newrelic);
+require('./src/routes')(app);
 
 /// Catch 404 and forward to error handler
 app.use(function(req, res, next) {

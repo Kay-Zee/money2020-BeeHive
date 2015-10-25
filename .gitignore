@@ -74,3 +74,5 @@ deploy/deploy.rb
 
 app/dump.rdb
 dump.rdb
+
+.private/*
