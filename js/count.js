@@ -11,24 +11,14 @@
 
   $document.ready(function() {
     $document.on('click', 'button', function() {
-      var $button = $(this),
-          $count = $('#count');
+      var $button = $(this);
 
-      $.post('/count/increment', function(res) {
-        if (res.newCount >= 4) {
-          $count.text(42);
-          $button.remove();
+          if ($button.text() == 'Take the job') {
+            $button.text('Complete the job')
+          } else if ($button.text() == 'Complete the job') {
+            $button.text('Job completed')
+          } 
 
-          var img = $('<img>', {
-            src: 'img/goat.jpg'
-          });
-
-          $('body').append(img);
-        } else {
-          $count.text(res.newCount);
-        }
-
-      });
     });
   });
 })();
