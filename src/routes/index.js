@@ -42,7 +42,11 @@ var Routes = function(app) {
       title: Config.title + 'payment'
     });
   });
-
+  app.get('/signup', function(req, res) {
+    res.render('signup.jade', {
+      title: Config.title + 'signup'
+    });
+  });
   require('./owners.js')(app);
   require('./workers.js')(app);
 };
