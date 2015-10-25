@@ -12,7 +12,7 @@ module.exports = {
   },
   create: function(job) {
     return db.getClient()
-      .query('INSERT INTO job (project_id, title, tags) VALUES ($1, $2, $3) RETURNING *',[job.projectId, job.title, job.tags])
+      .query('INSERT INTO job (project_id, title, cost, tags) VALUES ($1, $2, $3, $4) RETURNING *',[job.projectId, job.title, job.cost, job.tags])
       .then(function(results) {
         return results.rows[0]
       });

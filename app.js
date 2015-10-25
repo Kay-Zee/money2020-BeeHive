@@ -1,6 +1,7 @@
 var newrelic = require('newrelic');
 var compress = require('compression');
 var express = require('express');
+var session = require('express-session')
 var helmet = require('helmet');
 var path = require('path');
 var favicon = require('static-favicon');
@@ -9,7 +10,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var config = require('./src/config/config.js')();
 var mongoose = require('mongoose');
+var braintree = require("braintree");
+var UUID = require('uuid-js');
 
+var gateway = braintree.connect({
+  environment: braintree.Environment.Sandbox,
+  merchantId: process.env.BRAINTREE_MERCHANT_ID,
+  publicKey: process.env.BRAINTREE_MERCHANT_ID,
+  privateKey: process.env.BRAINTREE_MERCHANT_ID
+});
 
 var app = express();
 var env = process.env.NODE_ENV || 'development';
@@ -17,6 +26,8 @@ var viewsDir = (env === 'development' ? 'views' : 'built/views');
 
 mongoose.connect(process.env.NODE_ENV || 'mongodb://localhost/beehive');
 mongoose.Promise = require('bluebird');
+
+
 
 // Enable gzip
 app.use(compress());
@@ -36,6 +47,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // x-frame-options security
 app.use(helmet.frameguard('deny'));
+app.use(session({
+  genid: function(req) {
+    return UUID.create().toString() // use UUIDs for session IDs 
+  },
+  secret: 'beehive'
+}))
 
 /**
  * Force https

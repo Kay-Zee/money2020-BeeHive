@@ -29,5 +29,18 @@ module.exports = {
   delete: function(id) {
     return db.getClient()
       .query('DELETE FROM owner WHERE id = $1' [id]);
+  },
+  validateLogin: function(email, password) {
+    return db.getClient()
+      .query('SELECT FROM owner WHERE email = $1' [email])
+      .then(function(results) {
+        if (results.length === 0) {
+          throw 'No such email';
+        } else if (results.rows[0].password !== password){
+          throw 'Incorrect password';
+        } else {
+          return results.rows[0];
+        }
+      });
   }
 };

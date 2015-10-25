@@ -5,15 +5,21 @@ module.exports = function() {
   var envs = {
     "development": {
       "env": "development",
-      "title": "Development - "
+      "title": "Development - ",
+      "servicePercentage":3,
+      "merchantId": process.env.BRAINTREE_MERCHANT_ID
     },
     "staging": {
       "env": "staging",
-      "title": "Staging - "
+      "title": "Staging - ",
+      "servicePercentage":3,
+      "merchantId": process.env.BRAINTREE_MERCHANT_ID
     },
     "production": {
       "env": "production",
-      "title": "Bee Hive "
+      "title": "Bee Hive ",
+      "servicePercentage":3,
+      "merchantId": process.env.BRAINTREE_MERCHANT_ID
     }
   };
 
