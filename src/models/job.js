@@ -31,7 +31,7 @@ module.exports = {
   },
   delete: function(id) {
     return db.getClient()
-      .query('DELETE FROM jobs WHERE id = $1' [id]);
+      .query('DELETE FROM jobs WHERE id = $1', [id]);
   },
   acceptWork: function(accpet) {
     return db.getClient()
@@ -39,6 +39,19 @@ module.exports = {
         [accpet.workerId, accpet.jobId])
       .then(function(results) {
         return results.rows[0];
+      });
+  },
+  getJobWithWorker: function(jobId) {
+    return db.getClient()
+      .query('SELECT * FROM jobs WHERE id = $1', [jobId])
+      .then(function(results) {
+        var job = results.rows[0];
+        return db.getClient()
+          .query('SELECT * FROM workers WHERE id = $1', [job.accepted_worker_id])
+          .then(function(workerResult) {
+            job.worker = workerResult.rows[0];
+            return job;
+          });
       });
   }
 };

@@ -47,11 +47,17 @@ module.exports = {
         }
       });
   },
-  getProjects: function(ownerId) {
-    db.getClient()
-      .query('SELECT * FROM projects WHERE owner_id = $1', [ownerId])
+  getProjectsWithJobs: function(ownerId) {
+    return db.getClient()
+      .query('SELECT * FROM projects WHERE owner_id = $1 ORDER BY title', [ownerId])
       .then(function(results) {
-        return results.rows;
+        var project = results.rows[0];
+        return db.getClient()
+          .query('SELECT * FROM jobs WHERE project_id = $1', [project.id])
+          .then(function(jobResults) {
+            project.jobs = jobResults.rows;
+            return project;
+          });
       });
   }
 };

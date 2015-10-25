@@ -31,11 +31,11 @@ module.exports = {
   },
   delete: function(id) {
     return db.getClient()
-      .query('DELETE FROM workers WHERE id = $1' [id]);
+      .query('DELETE FROM workers WHERE id = $1', [id]);
   },
   validateLogin: function(email, password) {
     return db.getClient()
-      .query('SELECT * FROM workers WHERE email = $1' [email])
+      .query('SELECT * FROM workers WHERE email = $1', [email])
       .then(function(results) {
         if (results.length === 0) {
           throw 'No such email';

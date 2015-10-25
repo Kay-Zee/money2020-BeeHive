@@ -1,6 +1,14 @@
 
-function Login(){
+function LoginOwner(){
   $.post("/owners/login", { email: "kan@axiomzen.co", password: "password" })
+    .done(function(res) {
+      console.log(res);
+      window.location="/employer";
+    });
+}
+
+function LoginWorker(){
+  $.post("/workers/login", { email: "flynn@axiomzen.co", password: "password" })
     .done(function(res) {
       console.log(res);
       window.location="/list";

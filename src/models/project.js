@@ -45,7 +45,7 @@ module.exports = {
   },
   delete: function(id) {
     return db.getClient()
-      .query('DELETE FROM projects WHERE id = $1' [id]);
+      .query('DELETE FROM projects WHERE id = $1', [id]);
   },
   getAllProjects: function() {
     return db.getClient()

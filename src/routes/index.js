@@ -3,6 +3,7 @@
 var Config = require('../config/config.js')();
 var Owners = require('../models/owner.js');
 var Projects = require('../models/project.js');
+var Jobs = require('../models/job.js');
 
 var Routes = function(app) {
   app.get('/', function(req, res) {
@@ -52,12 +53,37 @@ var Routes = function(app) {
         });
       })
       .catch(function(err) {
-
+        res.status(404);
       });
 
   });
 
+  app.get('/employer', function(req, res) {
+    Owners.getProjectsWithJobs(req.session.user.id)
+      .then(function(project) {
+        res.render('employer.jade', {
+          title: Config.title + 'employer',
+          user: req.session.user,
+          project: project
+        });
+      })
+      .catch(function(err) {
+        res.status(404);
+      });
+  });
+  app.get('/job/:job_id/payment', function(req, res) {
+    Jobs.getJobWithWorker(req.params.job_id)
+      .then(function(job) {
+        res.render('payment.jade', {
+          title: Config.title + 'payment',
+          user: req.session.user
+        });
+      })
+      .catch(function(err) {
+        res.status(404);
+      });
 
+  });
 
   require('./owners.js')(app);
   require('./workers.js')(app);
