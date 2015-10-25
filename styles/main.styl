@@ -711,3 +711,47 @@ div.ends {
     line-height: 1
     border-radius: 3px
 
+
+
+.stats-container
+  width 500px
+  margin: 4em auto 2em
+  padding 1em
+
+.stats-chart-wrapper
+  padding-left 1.6em
+  position relative
+  min-height 140px
+  background-image linear-gradient(rgba(grey, 0.2) 3.33%, rgba(grey, 0) 3.34%)
+  background-size auto 1em
+  background-repeat repeat
+  background-position-y 12px
+  .stats-labels
+    font-size: .5em
+    &:before
+      content attr(data-labels)
+      width 1em
+      padding-right 1em
+      left -3em
+      position absolute
+      line-height 2em
+      font-size 1.8em
+      color rgba(0, 0, 139, 0.5)
+      background #fff
+  .stats-graph
+    width calc(94.9%)
+    height 100%
+    bottom 0.25em
+    left: .5em
+    position absolute
+    background-image linear-gradient(#2BDE73, rgba(#2BDE73, 0.2))
+    opacity 1
+    transition all 0.3s ease
+    -webkit-clip-path polygon(0% 45%, 0% 100%, 100% 100%, 100% 71%, 90% 11%, 80% 46%, 70% 28%, 60% 67%, 50% 38%, 40% 28%, 30% 76%, 20% 35%, 10% 77%)
+    clip-path polygon(0% 45%, 0% 100%, 100% 100%, 100% 71%, 90% 11%, 80% 46%, 70% 28%, 60% 67%, 50% 38%, 40% 28%, 30% 76%, 20% 35%, 10% 77%)
+  &:hover
+    .stats-graph
+      -webkit-clip-path polygon(0% 55%, 0% 100%, 100% 100%, 100% 41%, 90% 81%, 80% 36%, 70% 78%, 60% 27%, 50% 78%, 40% 58%, 30% 36%, 20% 45%, 10% 27%)
+      clip-path polygon(0% 55%, 0% 100%, 100% 100%, 100% 41%, 90% 81%, 80% 36%, 70% 78%, 60% 27%, 50% 78%, 40% 58%, 30% 36%, 20% 45%, 10% 27%)
+
+

@@ -70,9 +70,21 @@ block page-content
                     div
                       strong DECLINED
                       | 182
+
+          .row
+            .col-md-12
+              .stats-container.text-center
+                h2 Code activity
+                br
+                .stats-chart-wrapper
+                  .stats-labels(data-labels='35 30 25 20 15 10')
+                  .stats-graph
+
+
+
           .row.coder-list
             .col-md-12
-              h3 Choose the best work!
+              h3 Check the single pull requests:
               .list-group
                 a.list-group-item(href='#')
                   img(src="https://avatars2.githubusercontent.com/u/1353975?v=3&s=96")
