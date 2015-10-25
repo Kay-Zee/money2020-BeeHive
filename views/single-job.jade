@@ -13,17 +13,15 @@ block page-content
         .row
           .col-md-4
             a(href="/")
-              img(src="./img/logo-white.svg")
+              img(src="../../img/logo-white.svg")
           .col-md-8
             ul.text-right
               if user
                 li
+                  img.avatar(src="https://avatars2.githubusercontent.com/u/1353975?v=3&s=96")
+                li
                   a(href='/logout') Logout
-                li
-                  img(src="https://avatars2.githubusercontent.com/u/1353975?v=3&s=96")
               else
-                li
-                  a(href='#') How it works
                 li
                   a(href='#') Login
                 li
@@ -78,5 +76,5 @@ block page-content
 
     footer
       .text-center
-        img(src="img/logo-white.svg")
+        img(src="../../img/logo-white.svg")
 
