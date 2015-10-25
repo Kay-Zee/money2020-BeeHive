@@ -13,14 +13,14 @@ block page-content
         .row
           .col-md-4
             a(href="/")
-              img(src="./img/logo.svg")
+              img(src="./img/logo-white.svg")
           .col-md-8
             ul.text-right
               if user
                 li
-                  a(href='/logout') Logout
+                  img.avatar(src="https://avatars1.githubusercontent.com/u/2775157?v=3&s=96")
                 li
-                  img(src="https://avatars1.githubusercontent.com/u/2775157?v=3&s=96")
+                  a(href='/logout') Logout
               else
                 li
                   a(href='#') Login
