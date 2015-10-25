@@ -74,8 +74,8 @@ block page-content
                 .row
                   for project in projects
                     .col-md-4
-                      .all-box
-                        a.block.category.clip.hover-bg-color-art.category-5(href='/project/' + project.id)
+                      a.all-box(href='/project/' + project.id)
+                        .block.category.clip.hover-bg-color-art.category-5
                           .category-project-count.full-height.mobile-table
                               .mobile-table-cell
                                 .h4 #{project.jobs} jobs available
@@ -84,141 +84,6 @@ block page-content
                                 .h3 #{project.title}
                         .content
                           p #{project.description}
-
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-1(href='#')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 2 jobs available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 food-inspections-evaluation
-                  //-     .content
-                  //-       p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
-
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-2(href='single-job')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 1 job available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 opendata.cern.ch
-                  //-     .content
-                  //-       p Invenio source code overlay for CERN Open Data Portal
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-3(href='#')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 1 job available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 congressional-districts
-                  //-     .content
-                  //-       p Historic and current US Congressional districts as GeoJSON, versioned within Git
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-4(href='#')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 1 job available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 food-inspections-evaluation
-                  //-     .content
-                  //-       p This repository contains the code to generate predictions of critical vi
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-5(href='#')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 1 job available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 u2flib
-                  //-     .content
-                  //-       p Provides functionality for working with the server side aspects of the U2F protocol on iOS.
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-6(href='#')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 1 job available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 congressional-districts
-                  //-     .content
-                  //-       p Historic and current US Congressional districts as GeoJSON, versioned within Git
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-1(href='#')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 1 job available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 food-inspections-evaluation
-                  //-     .content
-                  //-       p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
-
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-2(href='#')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 1 job available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 opendata.cern.ch
-                  //-     .content
-                  //-       p Invenio source code overlay for CERN Open Data Portal
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-3(href='#')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 1 job available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 congressional-districts
-                  //-     .content
-                  //-       p Historic and current US Congressional districts as GeoJSON, versioned within Git
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-4(href='#')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 1 job available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 food-inspections-evaluation
-                  //-     .content
-                  //-       p This repository contains the code to generate predictions of critical vi
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-5(href='#')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 1 job available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 u2flib
-                  //-     .content
-                  //-       p Provides functionality for working with the server side aspects of the U2F protocol on iOS.
-                  //- .col-md-4
-                  //-   .all-box
-                  //-     a.block.category.clip.hover-bg-color-art.category-6(href='#')
-                  //-       .category-project-count.full-height.mobile-table
-                  //-           .mobile-table-cell
-                  //-             .h4 1 job available
-                  //-         .category-name.mobile-table.full-height
-                  //-           .mobile-table-cell
-                  //-             .h3 congressional-districts
-                  //-     .content
-                  //-       p Historic and current US Congressional districts as GeoJSON, versioned within Git
 
 
           section#section-flip-2
