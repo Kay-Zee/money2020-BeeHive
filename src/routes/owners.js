@@ -147,13 +147,13 @@ module.exports = function(app) {
         if (job.accepted_worker_id) {
           Workers.get(job.accepted_worker_id)
             .then(function(worker){
-              var serviceFee = '0.03';
+              var serviceFee = '5.00';
               if (job.cost > 100) {
-                serviceFee = ''+job.cost*3/100/100+'.'+(job.cost*3/100)%100;
+                serviceFee = ''+job.cost*5/100+'.'+(job.cost*5)%100;
               }
               Config.braintree.transaction.sale({
                   merchantAccountId: worker.braintree_id,
-                  amount: ''+job.cost/100+'.'+job.cost%100,
+                  amount: ''+job.cost+'.00',
                   paymentMethodNonce: 'fake-valid-nonce',
                   serviceFeeAmount: serviceFee,
                   options: {

@@ -24,6 +24,12 @@ var Routes = function(app) {
     });
   });
 
+  app.get("/client_token", function (req, res) {
+    Config.braintree.clientToken.generate({}, function (err, response) {
+      res.send(response.clientToken);
+    });
+  });
+
   app.get('/list', function(req, res) {
     Projects.getAllProjects()
       .then(function(projects){
