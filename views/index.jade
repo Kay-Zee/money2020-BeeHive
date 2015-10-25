@@ -18,9 +18,14 @@ block page-content
               a(href='/logout') Logout
             else
               li
-                a(href='javascript:LoginWorker()') Login as Worker
+                a(href='javascript:LoginWorker()')
+                  span.glyphicon.glyphicon-user
+                  | &nbsp; Login as Worker
+
               li
-                a(href='javascript:LoginOwner()') Login as Employer
+                a(href='javascript:LoginOwner()')
+                  span.glyphicon.glyphicon-console
+                  | &nbsp; Login as Employer
               li
                 a(href='#') Sign up
 
