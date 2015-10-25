@@ -25,12 +25,15 @@ block page-content
               img(src="./img/logo-white.svg")
           .col-md-8
             ul.text-right
-              li
-                a(href='#') How it works
-              li
-                a(href='#') Login
-              li
-                a(href='#') Sing up
+              if user
+                a(href='/logout') Logout
+              else
+                li
+                  a(href='#') How it works
+                li
+                  a(href='#') Login
+                li
+                  a(href='#') Sign up
 
 
 
@@ -44,13 +47,13 @@ block page-content
           ul
             li
               a.icon.icon-plane(href='#section-flip-5')
-                span iOS
+                span Node.js
             li
               a.icon.icon-date(href='#section-flip-4')
-                span Android
+                span iOS
             li
               a.icon.icon-gift(href='#section-flip-2')
-                span node.js
+                span Android
             li
               a.icon.icon-coffee(href='#section-flip-3')
                 span php
@@ -68,140 +71,153 @@ block page-content
             .choose
               .choose-box
                 .row
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-1(href='single-job')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 food-inspections-evaluation
-                      .content
-                        p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
+                  for project in projects
+                    .col-md-4
+                      .all-box
+                        a.block.category.clip.hover-bg-color-art.category-5(href='/project/' + project.id)
+                          .category-project-count.full-height.mobile-table
+                              .mobile-table-cell
+                                .h4 #{project.jobs} jobs available
+                            .category-name.mobile-table.full-height
+                              .mobile-table-cell
+                                .h3 #{project.title}
+                        .content
+                          p #{project.description}
 
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-2(href='#')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 opendata.cern.ch
-                      .content
-                        p Invenio source code overlay for CERN Open Data Portal
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-3(href='#')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 congressional-districts
-                      .content
-                        p Historic and current US Congressional districts as GeoJSON, versioned within Git
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-4(href='#')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 food-inspections-evaluation
-                      .content
-                        p This repository contains the code to generate predictions of critical vi
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-5(href='#')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 u2flib
-                      .content
-                        p Provides functionality for working with the server side aspects of the U2F protocol on iOS.
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-6(href='#')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 congressional-districts
-                      .content
-                        p Historic and current US Congressional districts as GeoJSON, versioned within Git
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-1(href='#')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 food-inspections-evaluation
-                      .content
-                        p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-1(href='#')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 2 jobs available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 food-inspections-evaluation
+                  //-     .content
+                  //-       p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
 
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-2(href='#')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 opendata.cern.ch
-                      .content
-                        p Invenio source code overlay for CERN Open Data Portal
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-3(href='#')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 congressional-districts
-                      .content
-                        p Historic and current US Congressional districts as GeoJSON, versioned within Git
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-4(href='#')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 food-inspections-evaluation
-                      .content
-                        p This repository contains the code to generate predictions of critical vi
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-5(href='#')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 u2flib
-                      .content
-                        p Provides functionality for working with the server side aspects of the U2F protocol on iOS.
-                  .col-md-4
-                    .all-box
-                      a.block.category.clip.hover-bg-color-art.category-6(href='#')
-                        .category-project-count.full-height.mobile-table
-                            .mobile-table-cell
-                              .h4 382 live projects
-                          .category-name.mobile-table.full-height
-                            .mobile-table-cell
-                              .h3 congressional-districts
-                      .content
-                        p Historic and current US Congressional districts as GeoJSON, versioned within Git
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-2(href='single-job')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 1 job available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 opendata.cern.ch
+                  //-     .content
+                  //-       p Invenio source code overlay for CERN Open Data Portal
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-3(href='#')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 1 job available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 congressional-districts
+                  //-     .content
+                  //-       p Historic and current US Congressional districts as GeoJSON, versioned within Git
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-4(href='#')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 1 job available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 food-inspections-evaluation
+                  //-     .content
+                  //-       p This repository contains the code to generate predictions of critical vi
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-5(href='#')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 1 job available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 u2flib
+                  //-     .content
+                  //-       p Provides functionality for working with the server side aspects of the U2F protocol on iOS.
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-6(href='#')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 1 job available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 congressional-districts
+                  //-     .content
+                  //-       p Historic and current US Congressional districts as GeoJSON, versioned within Git
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-1(href='#')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 1 job available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 food-inspections-evaluation
+                  //-     .content
+                  //-       p This repository contains the code to generate predictions of critical violations at food establishments in Chicago.
+
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-2(href='#')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 1 job available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 opendata.cern.ch
+                  //-     .content
+                  //-       p Invenio source code overlay for CERN Open Data Portal
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-3(href='#')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 1 job available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 congressional-districts
+                  //-     .content
+                  //-       p Historic and current US Congressional districts as GeoJSON, versioned within Git
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-4(href='#')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 1 job available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 food-inspections-evaluation
+                  //-     .content
+                  //-       p This repository contains the code to generate predictions of critical vi
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-5(href='#')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 1 job available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 u2flib
+                  //-     .content
+                  //-       p Provides functionality for working with the server side aspects of the U2F protocol on iOS.
+                  //- .col-md-4
+                  //-   .all-box
+                  //-     a.block.category.clip.hover-bg-color-art.category-6(href='#')
+                  //-       .category-project-count.full-height.mobile-table
+                  //-           .mobile-table-cell
+                  //-             .h4 1 job available
+                  //-         .category-name.mobile-table.full-height
+                  //-           .mobile-table-cell
+                  //-             .h3 congressional-districts
+                  //-     .content
+                  //-       p Historic and current US Congressional districts as GeoJSON, versioned within Git
 
 
           section#section-flip-2
@@ -211,7 +227,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-1(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 food-inspections-evaluation
@@ -223,7 +239,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-2(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 opendata.cern.ch
@@ -234,7 +250,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-3(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 congressional-districts
@@ -247,7 +263,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-1(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 food-inspections-evaluation
@@ -259,7 +275,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-2(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 opendata.cern.ch
@@ -270,7 +286,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-3(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 congressional-districts
@@ -284,7 +300,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-1(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 food-inspections-evaluation
@@ -296,7 +312,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-2(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 opendata.cern.ch
@@ -307,7 +323,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-3(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 congressional-districts
@@ -320,7 +336,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-1(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 food-inspections-evaluation
@@ -332,7 +348,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-2(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 opendata.cern.ch
@@ -343,7 +359,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-3(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 congressional-districts
@@ -357,7 +373,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-1(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 food-inspections-evaluation
@@ -369,7 +385,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-2(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 opendata.cern.ch
@@ -380,7 +396,7 @@ block page-content
                   a.block.category.clip.hover-bg-color-art.category-3(href='#')
                     .category-project-count.full-height.mobile-table
                         .mobile-table-cell
-                          .h4 382 live projects
+                          .h4 1 job available
                       .category-name.mobile-table.full-height
                         .mobile-table-cell
                           .h3 congressional-districts

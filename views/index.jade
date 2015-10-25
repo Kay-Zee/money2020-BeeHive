@@ -2,7 +2,7 @@ extends layout.jade
 
 block extra-scripts
   //- build:js /scripts/home.js
-  script(src="/js/count.js")
+  script(src="/js/landing.js")
   //- endbuild
 
 block page-content
@@ -13,12 +13,15 @@ block page-content
           img(src="./img/logo.svg")
         .col-md-8
           ul.text-right
-            li
-              a(href='#') How it works
-            li
-              a(href='#') Login
-            li
-              a(href='#') Sing up
+            if user
+              a(href='/logout') Logout
+            else
+              li
+                a(href='#') How it works
+              li
+                a(href='javascript:Login()') Login
+              li
+                a(href='#') Sign up
 
       .hero-section-container
         h1 Code is art

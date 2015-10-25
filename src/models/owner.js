@@ -46,5 +46,12 @@ module.exports = {
           return results.rows[0];
         }
       });
+  },
+  getProjects: function(ownerId) {
+    db.getClient()
+      .query('SELECT * FROM projects WHERE owner_id = $1', [ownerId])
+      .then(function(results) {
+        return results.rows;
+      });
   }
 };

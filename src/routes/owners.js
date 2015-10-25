@@ -47,9 +47,11 @@ module.exports = function(app) {
 
   app.post('/owners/login', function(req, res) {
     var owner = req.body;
+    console.log(owner);
     if (owner.email && owner.password) {
       Owners.validateLogin(owner.email, owner.password)
         .then(function(newOwner) {
+          console.log(newOwner);
           req.session.user = newOwner;
           req.session.isOwner = true;
           res.status(200).json({

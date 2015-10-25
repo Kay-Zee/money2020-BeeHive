@@ -9,6 +9,19 @@ module.exports = {
       .then(function(results) {
         return results.rows[0];
       });
+  },  
+  getWithJobs: function(id) {
+    return db.getClient()
+      .query('SELECT * FROM projects WHERE id = $1', [id])
+      .then(function(results) {
+        var project = results.rows[0];
+        return db.getClient()
+          .query('SELECT * FROM jobs WHERE project_id = $1', [project.id])
+          .then(function(jobResults) {
+            project.jobs = jobResults.rows;
+            return project;
+          });
+      });
   },
   create: function(project) {
     return db.getClient()
@@ -33,5 +46,12 @@ module.exports = {
   delete: function(id) {
     return db.getClient()
       .query('DELETE FROM projects WHERE id = $1' [id]);
+  },
+  getAllProjects: function() {
+    return db.getClient()
+      .query('SELECT *, (SELECT COUNT(*) FROM jobs WHERE project_id = projects.id GROUP BY project_id) AS jobs FROM projects')
+      .then(function(results) {
+        return results.rows;
+      });
   }
 };
