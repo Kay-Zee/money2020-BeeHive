@@ -68,13 +68,13 @@ block page-content
 
         .content-wrap
           section#section-flip-1
-            .choose
+            .choose.choose-ios
               .choose-box
                 .row
                   for project in projects
                     .col-md-4
                       a.all-box(href='/project/' + project.id)
-                        .block.category.clip.hover-bg-color-art.category-5
+                        .block.category.clip.hover-bg-color-art.category-ios
                           .category-project-count.full-height.mobile-table
                               .mobile-table-cell
                                 .h4 #{project.jobs} jobs available
