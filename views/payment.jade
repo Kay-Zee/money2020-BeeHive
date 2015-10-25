@@ -1,0 +1,62 @@
+extends layout.jade
+
+block extra-scripts
+  //- build:js /scripts/home.js
+  script(src="/js/count.js")
+  //- endbuild
+
+block page-content
+
+  body.payment-page
+    .hero-list
+      .navbar-bee
+        .row
+          .col-md-4
+            a(href="/")
+              img(src="./img/logo-white.svg")
+          .col-md-8
+            ul.text-right
+              li
+                a(href='#') How it works
+              li
+                a(href='#') Login
+              li
+                a(href='#') Sing up
+
+    section.filter
+      .single-job
+        ol.breadcrumb
+          li
+            a(href='#') Home
+          li
+            a(href='#') Projects
+          li.active iOS
+
+        header  opendata.cern.ch
+        .description-container
+          .row
+            .col-md-6
+              #tile1.tile
+                .wrapper
+                  .header Make the payment
+                  .price.text-center
+                    label PRICE
+                    p 800$
+
+
+                  .list-group
+                    .list-group-item
+                      img(src="https://avatars2.githubusercontent.com/u/1353975?v=3&s=96")
+                      p Stefano Tirloni
+                        br
+                        b stedesign
+                      button.btn.btn-success.btn-xs.pull-right(type="button") Choose this pull request
+
+
+
+
+
+    footer
+      .text-center
+        img(src="img/logo-white.svg")
+
