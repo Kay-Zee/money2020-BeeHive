@@ -2,6 +2,7 @@ extends layout.jade
 
 block extra-scripts
   //- build:js /scripts/home.js
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous")
   script(src="/js/count.js")
   script(src='https://js.braintreegateway.com/v2/braintree.js')
   //- endbuild
@@ -58,7 +59,7 @@ block page-content
                         b stedesign
                       button.btn.btn-success.btn-xs.pull-right(type="button") Choose this pull request
             .col-md-6
-              .container
+                //.container
                 form(action='/process', method='post')
                   h2 Payment form
                   #checkout
@@ -67,9 +68,6 @@ block page-content
                   braintree.setup("eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiJhYmI3ZDE1NTEzNGFjNjBjYmNhNTZlYTEzZGM3MWRlNmVlNTQzMWY3NzI5Nzg3Y2E0ZGQ4YThjNWM3Njc4YzExfGNyZWF0ZWRfYXQ9MjAxNS0xMC0yNVQxNjowNTowNS45ODM3MTA5NjIrMDAwMFx1MDAyNm1lcmNoYW50X2lkPWZmZHFjOWZ5ZmZuN3luMmpcdTAwMjZwdWJsaWNfa2V5PXFqNjVubmRibm42cXlqa3AiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvZmZkcWM5ZnlmZm43eW4yai9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJjaGFsbGVuZ2VzIjpbImN2diJdLCJlbnZpcm9ubWVudCI6InNhbmRib3giLCJjbGllbnRBcGlVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvZmZkcWM5ZnlmZm43eW4yai9jbGllbnRfYXBpIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhdXRoVXJsIjoiaHR0cHM6Ly9hdXRoLnZlbm1vLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhbmFseXRpY3MiOnsidXJsIjoiaHR0cHM6Ly9jbGllbnQtYW5hbHl0aWNzLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20ifSwidGhyZWVEU2VjdXJlRW5hYmxlZCI6dHJ1ZSwidGhyZWVEU2VjdXJlIjp7Imxvb2t1cFVybCI6Imh0dHBzOi8vYXBpLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb206NDQzL21lcmNoYW50cy9mZmRxYzlmeWZmbjd5bjJqL3RocmVlX2Rfc2VjdXJlL2xvb2t1cCJ9LCJwYXlwYWxFbmFibGVkIjp0cnVlLCJwYXlwYWwiOnsiZGlzcGxheU5hbWUiOiJDb21tZXJjZSBGYWN0b3J5IiwiY2xpZW50SWQiOm51bGwsInByaXZhY3lVcmwiOiJodHRwOi8vZXhhbXBsZS5jb20vcHAiLCJ1c2VyQWdyZWVtZW50VXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL3RvcyIsImJhc2VVcmwiOiJodHRwczovL2Fzc2V0cy5icmFpbnRyZWVnYXRld2F5LmNvbSIsImFzc2V0c1VybCI6Imh0dHBzOi8vY2hlY2tvdXQucGF5cGFsLmNvbSIsImRpcmVjdEJhc2VVcmwiOm51bGwsImFsbG93SHR0cCI6dHJ1ZSwiZW52aXJvbm1lbnROb05ldHdvcmsiOnRydWUsImVudmlyb25tZW50Ijoib2ZmbGluZSIsInVudmV0dGVkTWVyY2hhbnQiOmZhbHNlLCJicmFpbnRyZWVDbGllbnRJZCI6Im1hc3RlcmNsaWVudDMiLCJiaWxsaW5nQWdyZWVtZW50c0VuYWJsZWQiOmZhbHNlLCJtZXJjaGFudEFjY291bnRJZCI6IjdkeWhkOThrZzJ0a3dxdGQiLCJjdXJyZW5jeUlzb0NvZGUiOiJVU0QifSwiY29pbmJhc2VFbmFibGVkIjpmYWxzZSwibWVyY2hhbnRJZCI6ImZmZHFjOWZ5ZmZuN3luMmoiLCJ2ZW5tbyI6Im9mZiJ9", 'dropin', {
                   container: 'checkout'
                   });
-
-
-
 
 
     footer
