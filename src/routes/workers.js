@@ -17,6 +17,8 @@ module.exports = function(app) {
     if (worker.email && worker.password) {
       Workers.validateLogin(worker.email, worker.password)
         .then(function(worker) {
+          req.session.user = worker;
+          req.session.isWorker = true;
           res.status(200).json({
             status: 'success'
           });
@@ -72,7 +74,9 @@ module.exports = function(app) {
           tags: [],
           subMerchantJson: merchantAccountParams
         })
-        .then(function(result) {
+        .then(function(newWorker) {
+          req.session.user = newWorker;
+          req.session.isWorker = true;
           res.status(200).json({status:'Account created successfully'});
         })
         .catch(function(err){

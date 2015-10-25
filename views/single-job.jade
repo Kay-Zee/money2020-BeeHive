@@ -17,7 +17,10 @@ block page-content
           .col-md-8
             ul.text-right
               if user
-                a(href='/logout') Logout
+                li
+                  a(href='/logout') Logout
+                li
+                  img(src="https://avatars2.githubusercontent.com/u/1353975?v=3&s=96")
               else
                 li
                   a(href='#') How it works
@@ -32,7 +35,7 @@ block page-content
       .single-job
         ol.breadcrumb
           li
-            a(href='#') Home
+            a(href='/') Home
           li
             a(href='#') Projects
           li.active Node.js

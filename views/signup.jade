@@ -1,0 +1,28 @@
+extends layout.jade
+
+block extra-scripts
+  //- build:js /scripts/home.js
+  script(src="/js/count.js")
+  //- endbuild
+
+block page-content
+  .signup-page
+    .signup-container
+      a(href="/")
+        img(src="./img/logo.svg")
+
+      .row
+        .col-md-6.col-md-offset-3
+          h3 Sing up
+          br
+          input.form-control(type='email', placeholder='Email')
+          br
+          input.form-control(type='password', placeholder='Password')
+          br
+
+
+          button.btn.btn-primary.btn-lg.btn-block(type='button') Sign up
+
+
+
+

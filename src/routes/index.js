@@ -74,17 +74,27 @@ var Routes = function(app) {
   app.get('/job/:job_id/payment', function(req, res) {
     Jobs.getJobWithWorker(req.params.job_id)
       .then(function(job) {
-        res.render('payment.jade', {
-          title: Config.title + 'payment',
-          user: req.session.user
-        });
+        return Projects.get(job.project_id)
+          .then(function(project){
+            res.render('payment.jade', {
+              title: Config.title + 'payment',
+              user: req.session.user,
+              project: project,
+              job: job
+            });
+          });
       })
       .catch(function(err) {
+        console.log(err);
         res.status(404);
       });
 
   });
-
+  app.get('/signup', function(req, res) {
+    res.render('signup.jade', {
+      title: Config.title + 'signup'
+    });
+  });
   require('./owners.js')(app);
   require('./workers.js')(app);
 };

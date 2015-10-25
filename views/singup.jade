@@ -1,0 +1,22 @@
+extends layout.jade
+
+block extra-scripts
+  //- build:js /scripts/home.js
+  script(src="/js/count.js")
+  //- endbuild
+
+block page-content
+  .singup-page
+
+    img(src="./img/logo.svg")
+
+
+    .hero-section-container
+      h3 Sign up
+      input.form-control(type='email', placeholder='Email')
+
+      button.btn.btn-primary.btn-lg(type='button') Sign up
+
+
+
+

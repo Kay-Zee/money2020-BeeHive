@@ -45,6 +45,9 @@ module.exports = {
         } else {
           return results.rows[0];
         }
+      })
+      .catch(function(err){
+        console.log(err);
       });
   },
   getProjectsWithJobs: function(ownerId) {

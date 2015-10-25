@@ -8,7 +8,7 @@ function LoginOwner(){
 }
 
 function LoginWorker(){
-  $.post("/workers/login", { email: "flynn@axiomzen.co", password: "password" })
+  $.post("/workers/login", { email: "testuser123live@gmail.com", password: "password" })
     .done(function(res) {
       console.log(res);
       window.location="/list";

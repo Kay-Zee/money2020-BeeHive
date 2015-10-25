@@ -17,7 +17,10 @@ block page-content
           .col-md-8
             ul.text-right
               if user
-                a(href='/logout') Logout
+                li
+                  a(href='/logout') Logout
+                li
+                  img(src="https://avatars1.githubusercontent.com/u/2775157?v=3&s=96")
               else
                 li
                   a(href='#') How it works
@@ -30,31 +33,30 @@ block page-content
       .single-job
         ol.breadcrumb
           li
-            a(href='#') Home
+            a(href='/') Home
           li
             a(href='#') Projects
           li.active Node.js
 
         header #{project.title}
-        for job in project.jobs
-          .description-container
-            .row
-              .col-md-6
-                #tile1.tile
-                  .wrapper
-                    .header Make the payment
-                    .price.text-center
-                      label PRICE
-                      p #{job.cost}$
+        .description-container
+          .row
+            .col-md-6
+              #tile1.tile
+                .wrapper
+                  .header Make the payment
+                  .price.text-center
+                    label PRICE
+                    p #{job.cost}$
 
 
-                    .list-group
-                      .list-group-item
-                        img(src="https://avatars2.githubusercontent.com/u/1353975?v=3&s=96")
-                        p Stefano Tirloni
-                          br
-                          b stedesign
-                        button.btn.btn-success.btn-xs.pull-right(type="button") Choose this pull request
+                  .list-group
+                    .list-group-item
+                      img(src="https://avatars2.githubusercontent.com/u/1353975?v=3&s=96")
+                      p Stefano Tirloni
+                        br
+                        b stedesign
+                      button.btn.btn-success.btn-xs.pull-right(type="button") Choose this pull request
 
 
 

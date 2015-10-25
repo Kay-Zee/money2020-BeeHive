@@ -2,7 +2,7 @@
 
 var pg = require('pg-then');
 var pgURI = process.env.PG_URI || 'postgres://postgres@localhost:5432/beehive';
-var pool = pg.Pool(pgURI);
+var pool = pg.Client(pgURI);
 
 module.exports = {
   getClient: function() {
